@@ -1,2 +1,2 @@
-# todo-list
-Todo List
+# Todo List
+Todo List - *JavaScript Ninja Udemy Course*
