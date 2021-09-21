@@ -3,6 +3,7 @@
 const addForm = document.querySelector('.add');
 const list = document.querySelector('.todos');
 
+// Template
 const generateTemplate = todo => {
   const html =  `
     <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -14,7 +15,7 @@ const generateTemplate = todo => {
   list.innerHTML += html;
 };
 
-
+// Add todos
 addForm.addEventListener('submit', e => {
   e.preventDefault();
 
@@ -27,4 +28,11 @@ addForm.addEventListener('submit', e => {
     addForm.reset();
   }
 
+});
+
+// Delete todos
+list.addEventListener('click', e => {
+  if(e.target.classList.contains('delete')){
+    e.target.parentElement.remove();
+  }
 });
