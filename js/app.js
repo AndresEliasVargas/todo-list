@@ -59,25 +59,27 @@ search.addEventListener('keyup', () => {
   filterTodos(term);
 });
 
-// Edit
+// Add Template Edit
+const addEditField = (parent) => {
+  let template =
+    `
+      <form class="input-edit text-center my-4">
+        <input class="form-control m-auto" type="text" name="edit" placeholder="Edit todo..." />
+      </form>
+    `
+  ;
+    
+  parent.insertAdjacentHTML('afterend', template);
+};
+
 list.addEventListener('click', e => {
   if(e.target.classList.contains('edit')){
-    // console.log(e.target.previousElementSibling.innerHTML);
     let textToEdit = e.target.previousElementSibling.innerHTML;
-    
-    // Add input to edit
-    let template =
-      `
-        <form class="input-edit text-center my-4">
-          <input class="form-control m-auto" type="text" name="edit" placeholder="Edit todo..." />
-        </form>
-      `
-    ;
 
-    e.target.parentElement.insertAdjacentHTML('afterend', template);
+    addEditField(e.target.parentElement);
 
     
+    // let valueToEdit = 'test';
+    // e.target.previousElementSibling.textContent = textToEdit.replace(textToEdit, valueToEdit);
   }
 });
-
-
