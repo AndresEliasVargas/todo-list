@@ -75,11 +75,25 @@ const addEditField = (parent) => {
 list.addEventListener('click', e => {
   if(e.target.classList.contains('edit')){
     let textToEdit = e.target.previousElementSibling.innerHTML;
+    // e.target.classList.contains('edit');
 
     addEditField(e.target.parentElement);
 
+    let inputEdit = document.querySelector('.input-edit input');
+    console.log(inputEdit);
+
+    // inputEdit.addEventListener('submit', e => {
+    //   console.log('test', e.key);
+    //   e.preventDefault();
+
+    //   if(e.key === "Enter"){
+    //     // e.preventDefault();
     
-    // let valueToEdit = 'test';
-    // e.target.previousElementSibling.textContent = textToEdit.replace(textToEdit, valueToEdit);
+    //     // let valueToEdit = 'test';
+    //     let valueToEdit = inputEdit.value;
+    //     e.target.previousElementSibling.textContent = textToEdit.replace(textToEdit, valueToEdit);
+    //   }
+    // });
+
   }
 });
