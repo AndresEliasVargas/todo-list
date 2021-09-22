@@ -9,6 +9,7 @@ const generateTemplate = todo => {
   const html =  `
     <li class="list-group-item d-flex justify-content-between align-items-center">
       <span>${todo}</span>
+      <i class="fas fa-pen mr-4 edit"></i>
       <i class="far fa-trash-alt delete"></i>
     </li>
   `;
@@ -38,7 +39,7 @@ list.addEventListener('click', e => {
   }
 });
 
-// Search & Filter
+// Filter
 const filterTodos = term => {
   // console.log(list.children); // HTML Collection
   // console.log(Array.from(list.children));
@@ -52,8 +53,31 @@ const filterTodos = term => {
     .forEach(todo => todo.classList.remove('filtered'));
 };
 
-
+// Search
 search.addEventListener('keyup', () => {
   const term = search.value.trim().toLowerCase();
   filterTodos(term);
 });
+
+// Edit
+list.addEventListener('click', e => {
+  if(e.target.classList.contains('edit')){
+    // console.log(e.target.previousElementSibling.innerHTML);
+    let textToEdit = e.target.previousElementSibling.innerHTML;
+    
+    // Add input to edit
+    let template =
+      `
+        <form class="input-edit text-center my-4">
+          <input class="form-control m-auto" type="text" name="edit" placeholder="Edit todo..." />
+        </form>
+      `
+    ;
+
+    e.target.parentElement.insertAdjacentHTML('afterend', template);
+
+    
+  }
+});
+
+

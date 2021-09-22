@@ -14,9 +14,12 @@ input[type=text]:focus{
 .todos li{
   background: #423a6f;
 }
-.delete{
+.delete, .edit{
   cursor: pointer;
 }
 .filtered{
   display: none !important;
+}
+.edit{
+  margin-left: auto;
 }
